@@ -35,7 +35,7 @@ class Order(models.Model):
     """
     customer = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="orders", verbose_name="Customer")
     order_items = models.ManyToManyField(to="products.Item", related_name="items", verbose_name="Items")
-    total_amount = models.DecamilField(max_digits=10, desimal_places=2, blank=True, null=True, verbose_name="Total amount")
+    total_amount = models.DecimalField(max_digits=10, desimal_places=2, blank=True, null=True, verbose_name="Total amount")
     status = models.CharField(
         max_length=50, 
         choices=OrderStatusChoices.choices, 
