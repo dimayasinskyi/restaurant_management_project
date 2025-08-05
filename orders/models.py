@@ -33,7 +33,7 @@ class Order(models.Model):
     Method:
     - __str__: returns full customer name and total amount (f"{ self.customer.get_full_name() } | { self.total_amount }")
     """
-    customer = models.ForeignKey(to=User, on_delete=models.CASCADE, verbose_name="Customer")
+    customer = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="orders", verbose_name="Customer")
     order_items = models.ManyToManyField(to="products.Item", related_name="items", verbose_name="Items")
     total_amount = models.DecamilField(max_digits=10, desimal_places=2, blank=True, null=True, verbose_name="Total amount")
     status = models.CharField(
