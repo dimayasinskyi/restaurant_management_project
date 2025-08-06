@@ -71,7 +71,7 @@ class ItemDetailView(APIView):
 
 
 class MenuItemDetailView(TemplateView):
-    template_name = "menu.html"
+    template_name = "menu-detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
