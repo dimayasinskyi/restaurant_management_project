@@ -19,19 +19,19 @@ class OrderStatusChoices(models.TextChoices):
     SHIPPED = "shipped", "Shipped"
     DELIVERED = "delivered", "Delivered"
     CANCELLED = "cancelled", "Cancelled"
-    REFUNDED = "pefunded", "Pefunded"
+    REFUNDED = "refunded", "Refunded"
 
 
 class Order(models.Model):
     """
     Has fields:
     - customer: will be associated with the User model type many-to-one cascade delete
-    - oreder_items: will be associated with the Item model many-to-many relationship (related name "items")
-    - total_amout: should contain the total amount that fills the signal (optional) 
-    - status: dropdown list based on class OrderStatusChoises (defaut is processing)
+    - order_items: will be associated with the Item model many-to-many relationship (related name "items")
+    - total_amount: should contain the total amount that fills the signal (optional) 
+    - status: dropdown list based on class OrderStatusChoices (default is processing)
 
     Method:
-    - __str__: returns full customer name and total amount (f"{ self.customer.get_full_name() } | { self.total_amount }")
+    - __str__: returns full customer name and total amount (f"{self.customer.get_full_name()} | {self.total_amount}")
     """
     customer = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="orders", verbose_name="Customer")
     order_items = models.ManyToManyField(to="products.Item", related_name="items", verbose_name="Items")
@@ -49,4 +49,4 @@ class Order(models.Model):
         verbose_name_plural = "Orders"
     
     def __str__(self):
-        return f"{ self.customer.get_full_name() } | { self.total_amount }"
+        return f"{self.customer.get_full_name()} | {self.total_amount}"
