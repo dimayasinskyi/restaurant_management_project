@@ -1,9 +1,9 @@
 <html>
     <body>
-        <h1>Menu item #{{item.id}}</h1>
-        <p>Name {{item.item_name}}</p>
-        <p>Price {{item.item_price}}</p>
-        <p>Created at {{item.created_at}}</p>
+        <h1>Menu item: #{{item.id}}</h1>
+        <p>Name: {{item.item_name}}</p>
+        <p>Price: {{item.item_price}}</p>
+        <p>Created at: {{item.created_at}}</p>
         <a href="{% url 'product:menu-list' %}">back</a>
     </body>
 </html>
