@@ -71,6 +71,15 @@ class ItemDetailView(APIView):
 
 
 class MenuItemView(TemplateView):
+    """
+    A view fro displaying a list of all menu items.
+
+    Methods:
+    - get_context_data:
+      - Sets the context for the template
+      - Adds a list of Item model objects, sorted by creation date in reverse order
+      - Returns the context for use in the template
+    """
     template_name = "menu.html"
 
     def get_context_data(self, **kwargs):
@@ -80,6 +89,16 @@ class MenuItemView(TemplateView):
 
 
 class MenuItemDetailView(TemplateView):
+    """
+    A view fro displaying derailed information about a single menu item.
+
+    Methods:
+    - get_context_data:
+      - Gets the context for the template
+      - Finds the Item object by the "id" parameter passed in the URL
+      - If the ocject exists, adds it to the context as "item"
+      - If It does not exist, returns a 404 error
+    """
     template_name = "menu-detail.html"
 
     def get_context_data(self, **kwargs):
