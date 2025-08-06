@@ -10,8 +10,14 @@ class ItemDetailViewTests(APITestCase):
     def setUp(self):
         self.valid_data = {
             "item_name": "test name",
-            "item_price": 
+            "item_price": 12.99,
         }
         self.url = reverse("produtc:item-detail")
 
+    def test_get_method(self):
+        item = Item.objects.create(**self.valid_data)
+        response = self.client.get(self.url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.json(), )
 
