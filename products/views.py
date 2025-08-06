@@ -70,5 +70,11 @@ class ItemDetailView(APIView):
         return Response({"delete": f"deleted item by id {id}"}, status=status.HTTP_200_OK)
 
 
-class MenuItemView(TemplateView):
+class MenuItemDetailView(TemplateView):
     template_name = "menu.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        item_id = self.kwargs.get("id")
+        context["item"] = get_object_or_404(Item, id=item_id)
+        return context
