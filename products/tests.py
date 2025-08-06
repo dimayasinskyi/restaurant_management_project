@@ -14,13 +14,17 @@ class ItemDetailViewTests(APITestCase):
         }
         self.item = Item.objects.create(**valid_data)
         self.serializers = ItemSerializer(item)
-        self.url = reverse("produtc:item-detail", kwargs=self.item.id)
+        self.url = reverse("producr:item-detail", kwargs=self.item.id)
 
     def test_get_method(self):
         response = self.client.get(self.url)
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), self.serializers.data)
+
+    def test_get_method_404_error(self):
+        response = self.client.get(reverse("product:item-detail"), kwargs=100)
+        self.assertEqual(response.status_code, 404)
 
     def test_put_method(self):
         put_data = {
