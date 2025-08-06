@@ -70,6 +70,15 @@ class ItemDetailView(APIView):
         return Response({"delete": f"deleted item by id {id}"}, status=status.HTTP_200_OK)
 
 
+class MenuItemView(TemplateView):
+    template_name = "menu.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["items"] = Item.objects.all().order_by("-created_at")
+        return context
+
+
 class MenuItemDetailView(TemplateView):
     template_name = "menu-detail.html"
 
