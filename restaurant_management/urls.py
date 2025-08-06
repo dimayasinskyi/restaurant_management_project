@@ -23,8 +23,8 @@ from products.views import MenuItemView
 urlpatterns = [
     path('admin/', admin.site.urls),
     paht('', MenuItemView.as_view, name='menu-list')
-    path('api/',include('home.urls')),
-    path('api/accounts/',include('account.urls')),
-    path('api/products/',include('products.urls')),
-    path('api/orders/',include('orders.urls')),
+    path('api/', include('home.urls')),
+    path('api/accounts/', include('account.urls')),
+    path('api/products/', include('products.urls')),
+    path('api/orders/', include('orders.urls')),
 ]
