@@ -37,7 +37,7 @@ class ItemDetailView(APIView):
         """
         return get_object_or_404(Item, id=id)
 
-    def update_data(self, id, partial=False):
+    def update_data(self, request, id, partial=False):
         """
         Data update method template, accepts attribute id and partial.
 
@@ -45,7 +45,7 @@ class ItemDetailView(APIView):
         - put
         - patch
         """
-        instance = get_object(Item, id=id)
+        instance = self.get_object(id=id)
         serializer = ItemSerializer(instance=instance, data=request.data, partial=partial)
         if serializer.is_valid():
             serializer.save()
@@ -53,17 +53,17 @@ class ItemDetailView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, id):
-        item = get_object(Item, id=id)
+        item = self.get_object(id=id)
         serializer = ItemSerializer(item)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, id):
-        update_data(id, partial=False)
+        return self.update_data(request, id, partial=False)
 
     def patch(self, request, id):
-        update_data(id, partial=True)
+        return self.update_data(request, id, partial=True)
 
     def delete(self, request, id):
-        item = get_object(id)
+        item = self.get_object(id=id)
         item.delete()
         return Response({"delete": f"deleted item by id {id}"}, status=status.HTTP_200_OK)
