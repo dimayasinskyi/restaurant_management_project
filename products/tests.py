@@ -14,7 +14,7 @@ class ItemDetailViewTests(APITestCase):
         }
         self.item = Item.objects.create(**self.valid_data)
         self.serializer = ItemSerializer(self.item)
-        self.url = reverse("product:item-detail", kwargs=self.item.id)
+        self.url = reverse("product:item-detail", kwargs={"id": self.item.id})
 
     def test_get_method(self):
         response = self.client.get(self.url)
@@ -55,7 +55,8 @@ class ItemDetailViewTests(APITestCase):
 
     def test_update_data_400_error(self):
         invalid_data = {
-            "item_name": 231,
+            "item_name": 123,
+            "item_price": "abc"
         }
         response = self.client.put(self.url, data=invalid_data, format="json")
         self.assertEqual(response.status_code, 400)
