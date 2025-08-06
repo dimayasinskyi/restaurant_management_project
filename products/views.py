@@ -37,7 +37,7 @@ class ItemDetailView(APIView):
         """
         return get_object_or_404(Item, id=id)
 
-    def update_data(self, request, id, partial=False):
+    def update_item_data(self, request, id, partial=False):
         """
         Data update method template, accepts attribute id and partial.
 
@@ -58,10 +58,10 @@ class ItemDetailView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, id):
-        return self.update_data(request, id, partial=False)
+        return self.update_item_data(request, id, partial=False)
 
     def patch(self, request, id):
-        return self.update_data(request, id, partial=True)
+        return self.update_item_data(request, id, partial=True)
 
     def delete(self, request, id):
         item = self.get_object(id=id)
