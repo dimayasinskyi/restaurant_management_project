@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
-from products.views import 
+from products.views import MenuItemView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    paht('', MenuItemView.as_view, name='menu-list')
     path('api/',include('home.urls')),
     path('api/accounts/',include('account.urls')),
     path('api/products/',include('products.urls')),
