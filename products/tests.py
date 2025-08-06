@@ -7,4 +7,4 @@ from .views import ItemDetailView
 
 class ItemDetailViewTests(APITestCase):
     def setUp(self):
-        self.url = reverse("")
+        self.url = reverse("produtc:item-detail")
