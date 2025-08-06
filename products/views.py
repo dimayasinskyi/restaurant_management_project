@@ -40,11 +40,20 @@ class ItemDetailView(APIView):
 
     def update_item_data(self, request, id, partial=False):
         """
-        Data update method template, accepts attribute id and partial.
+        Data update method template.
 
         Used in methods:
         - put
         - patch
+
+        Patameters:
+        - request: A request object containing the new data to update
+        - id (int): The ID of the Item object to update
+        - partial (bool): Indicates whether the update is partial (True for PATCH) or complete (False for PUT)
+
+        Returns:
+        - Respomse: The serilized data of the updated object on success (HTTP 200)
+          or a validation error message (HTTP 400)
         """
         instance = self.get_object(id=id)
         serializer = ItemSerializer(instance=instance, data=request.data, partial=partial)
