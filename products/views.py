@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
+from django.views.generic import TemplateView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -67,3 +68,7 @@ class ItemDetailView(APIView):
         item = self.get_object(id=id)
         item.delete()
         return Response({"delete": f"deleted item by id {id}"}, status=status.HTTP_200_OK)
+
+
+class MenuItemView(TemplateView):
+    template_name = "menu.html"
