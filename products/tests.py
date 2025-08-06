@@ -12,9 +12,9 @@ class ItemDetailViewTests(APITestCase):
             "item_name": "test name",
             "item_price": 12.99,
         }
-        item = Item.objects.create(**valid_data)
+        self.item = Item.objects.create(**valid_data)
         self.serializers = ItemSerializer(item)
-        self.url = reverse("produtc:item-detail", kwargs=item.id)
+        self.url = reverse("produtc:item-detail", kwargs=self.item.id)
 
     def test_get_method(self):
         response = self.client.get(self.url)
@@ -47,5 +47,5 @@ class ItemDetailViewTests(APITestCase):
         response = self.client.delete(self.url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data, 200)
+        self.assertEqual(response.data, {"delete": f"deleted item by id {self.item.id}"})
     
