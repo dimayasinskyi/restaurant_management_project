@@ -33,13 +33,19 @@ class ItemDetailViewTests(APITestCase):
         self.assertEqual(response['item_name'], put_data['item_name'])
         self.assertEqual(response['item_price'], put_data['item_price'])
 
-    def test_put_method(self):
+    def test_patch_method(self):
         patch_data = {
             "item_name": "test name2",
         }
-        response = self.client.patch(self.url, data=put_data)
+        response = self.client.patch(self.url, data=patch_data)
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response['item_name'], put_data['item_name'])
+        self.assertEqual(response['item_name'], patch_data['item_name'])
+        self.assertEqual(response['item_price'], self.valid_data['item_price'])
 
+    def test_patch_method(self):
+        response = self.client.delete(self.url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data, 200)
     
