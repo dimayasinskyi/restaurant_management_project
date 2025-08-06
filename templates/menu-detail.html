@@ -1,8 +1,9 @@
 <html>
     <body>
         <h1>Menu item #{{item.id}}</h1>
-        <p></p>
-        <p></p>
+        <p>Name {{item.item_name}}</p>
+        <p>Price {{item.item_price}}</p>
         <p>Created at {{item.created_at}}</p>
+        <a href="{% url 'product:' %}"></a>
     </body>
 </html>
