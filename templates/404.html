@@ -1,1 +1,16 @@
 {% extends 'base.html' %}
+
+
+{% block title %}404 Not Found{% endblock %}
+
+{% block content %}
+<div class="text_center p-4 bg-wjite rounded shadow">
+    <h1 class="display-1 fw-blod text-danger mb-4">404 - Page Not Found</h1>
+    <p class="mb-4 text-secondaty fs-5">You may have made a mastake in the address.</p>
+    <ul class="list-unstyled text-start mb-4">
+        <li class="mb-2">Check the URL</li>
+        <li class="mb-2">Use the site search</li>
+        <li><a href="/" class="btn btn-primary mt-3">Return to the main page</a></li>
+    </ul>
+</div>
+{% endblock %}
