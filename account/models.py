@@ -21,7 +21,7 @@ class Profile(models.Model):
     phone_number = models.CharField(max_length=16, blank=True, null=True, verbose_name="Phone")
 
     class Meta:
-        ordering = ["-user"]
+        ordering = ["-name"]
         verbose_name = "Profile"
         verbose_name_plural = "Profiles"
 
