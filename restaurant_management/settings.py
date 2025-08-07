@@ -27,8 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-handler404 = "account.views.coustom_404"
-
 # Application definition
 
 INSTALLED_APPS = [
