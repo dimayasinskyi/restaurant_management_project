@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
+from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -114,4 +115,5 @@ class MenuItemDetailView(TemplateView):
         context = super().get_context_data(**kwargs)
         item_id = self.kwargs.get("id")
         context["item"] = get_object_or_404(Item, id=item_id)
+        context["restaurant_name"] = settings.RESTAURANT_NAME
         return context
