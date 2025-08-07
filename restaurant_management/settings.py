@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-handler
+handler404 = "account.views.coustom_404"
 
 # Application definition
 
