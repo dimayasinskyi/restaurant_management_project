@@ -3,10 +3,12 @@
 
 {% block title %}Details {{item.item_name}}{% endblock %}
 
-{% bock content %}
-    <h1>Menu item: #{{item.id}}</h1>
-    <p>Name: {{item.item_name}}</p>
-    <p>Price: {{item.item_price}}</p>
-    <p>Created at: {{item.created_at}}</p>
-    <a href="{% url 'menu-list' %}">back</a>
+{% block content %}
+    <div class="container py-4">
+        <h1 class="mb-4">Menu item: #{{item.id}}</h1>
+        <p><strong>Name:</strong> {{item.item_name}}</p>
+        <p><strong>Price:</strong> {{item.item_price}} $</p>
+        <p><small class="text-muted">Created at: {{item.created_at|date:"d, m, Y"}}</small></p>
+        <a href="{% url 'menu-list' %}" class="btn btn-secondary mt-3">back</a>
+    </div>
 {% endblock %}
