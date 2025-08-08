@@ -3,5 +3,5 @@ from .views import *
 
 
 urlpatterns = [
-    path('about_restaurantes')
+    path('about_us', about, name="about_us")
 ]
