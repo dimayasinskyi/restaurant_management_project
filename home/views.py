@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from django.conf import settings
 
 
-def about_us(request):
-    return render(request, "about_us")
+def about(request):
+    return render(request, "about.html", {"restaurant": settings.RESTAURANT_NAME})
