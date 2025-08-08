@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
-{% block title %}{% endblock %}
+{% block title %}About us{% endblock %}
 
 {% block content %}
+<div class="container py-4 text-center">
+    <h1>Welcome to {{restaurant_name}}</h1> 
+    <p>
+        {{restaurant_name}} - where authentic Indian spices meet a warm and cozy atmosphere. Our
+        chefs craft every dish with passion, blending traditional recipes with a modern twist. From
+        sizzling tandoori specialties to aromatic curries, every bite is a journey to India.
+    </p>
+    <img src="{% static 'restaurant.jpg' %}" alt="Restaurant" class="img-fluid rounded shadow">
+</div>
 {% endblock %}
