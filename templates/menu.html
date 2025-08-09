@@ -3,29 +3,29 @@
 {% block title %}{{restaurant_name}}{% endblock %}
 
 {% block content %}
-    <div class="container py-4">
-        <h1 class="mb-1 text-center">Restautant "{{restaurant_name}}"</h1>
-        <h2 class="mb-4 text-center">Menu</h2>
-        <div class="row">
-        {% for item in items %}
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <h1 class="card-title">Item #{{item.id}}</h1>
-                        <h2 class="card-subtitle mb-2 text-muted">Name: {{item.item_name}}</h2>
-                        <p class="card-text">Price: <strong>{{item.item_price}} $</strong></p>
-                        <p class="card-text">Created at: {{item.created_at|date: "d, m, Y"}}</p>
-                        <a href="{% url 'product:menu-detail' item.id %}" class="btn btn-primary mt-2">Details</a>
-                    </div>
+<div class="container py-4">
+    <h1 class="mb-1 text-center">Restautant "{{restaurant_name}}"</h1>
+    <h2 class="mb-4 text-center">Menu</h2>
+    <div class="row">
+    {% for item in items %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h1 class="card-title">Item #{{item.id}}</h1>
+                    <h2 class="card-subtitle mb-2 text-muted">Name: {{item.item_name}}</h2>
+                    <p class="card-text">Price: <strong>{{item.item_price}} $</strong></p>
+                    <p class="card-text">Created at: {{item.created_at|date: "d, m, Y"}}</p>
+                    <a href="{% url 'product:menu-detail' item.id %}" class="btn btn-primary mt-2">Details</a>
                 </div>
             </div>
-        {% empty %}
-            <div class="col-12">
-                <div class="alert alert-warning text-center" role="alert">
-                    No products
-                </div>
-            </div>
-        {% endfor %}
         </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-warning text-center" role="alert">
+                No products
+            </div>
+        </div>
+    {% endfor %}
     </div>
+</div>
 {% endblock %}
