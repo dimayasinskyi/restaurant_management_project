@@ -4,8 +4,8 @@ from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
 from datetime import datetime
+
 
 from .models import Item
 from .serializers import ItemSerializer
@@ -99,15 +99,18 @@ class MenuItemView(TemplateView):
         # context["items"] = Item.objects.all().order_by("-created_at")
         context["items"] = [
             {
+                "id": 1,
                 "item_name": "Butter Chicken",
                 "item_price": 350,
                 "created_at": datetime(2025, 8, 9, 12, 0, 0),
             },
             {
+                "id": 2,
                 "item_name": "Panner Tikka",
                 "item_price": 280,
                 "created_at": datetime(2025, 1, 20, 8, 0, 0),
             },
+        ]
         return context
 
 
