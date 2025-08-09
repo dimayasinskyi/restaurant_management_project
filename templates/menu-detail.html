@@ -9,6 +9,6 @@
         <p><strong>Name:</strong> {{item.item_name}}</p>
         <p><strong>Price:</strong> {{item.item_price}} $</p>
         <p><small class="text-muted">Created at: {{item.created_at|date:"d, m, Y"}}</small></p>
-        <a href="{% url 'menu-list' %}" class="btn btn-secondary mt-3">back</a>
+        <a href="{% url 'product:menu-list' %}" class="btn btn-secondary mt-3">back</a>
     </div>
 {% endblock %}
