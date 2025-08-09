@@ -9,3 +9,6 @@ def main_page(request):
 
 def about(request):
     return render(request, "about.html", {"restaurant_name": settings.RESTAURANT_NAME})
+
+def contect(request):
+    return render(request, "contect.html", {"restaurant_name": settings.RESTAURANT_NAME})
