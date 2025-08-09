@@ -96,7 +96,8 @@ class MenuItemView(TemplateView):
         context = super().get_context_data(**kwargs)
         # context["items"] = Item.objects.all().order_by("-created_at")
         context["items"] = {
-            
+            "item_name": ,
+            "item_price": ,
         }
         return context
 
