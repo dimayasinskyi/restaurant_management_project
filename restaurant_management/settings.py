@@ -129,3 +129,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Restaurant
 RESTAURANT_NAME = "Tandoori Flame"
+RESTAURANT_CONTACT_PHONE = "+380991234567"
