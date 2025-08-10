@@ -4,5 +4,45 @@
 {% block title %}Reservation{% endblock %}
 
 {% block content %}
+<main class="container py-5" style="max-width: 500px;">
+    <h2 class="mb-4 text-center">Table reservation</h2>
+    <from>    
+        <div class="mb-3">
+            <label for="name" class="form-label">Your name</label>
+            <input type="text" class="form-conrol" id="name" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-conrol" id="email" placeholder="Enter your email address">
+        </div>
+        
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone number</label>
+            <input type="tel" class="form-conrol" id="phone" placeholder="Enter you phone number" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="date" class="form-label">Reservation date</label>
+            <input type="date" class="form-conrol" id="date" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="time" class="form-label">Reservation time</label>
+            <input type="time" class="form-conrol" id="time" required>
+        </div>
 
+        <div class="mb-3">
+            <label for="guests" class="form-label">Number of Guests</label>
+            <select class="form-select" id="guests" required>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Reservation now</button>
+    </from>
+</main>
 {% endblock %}
