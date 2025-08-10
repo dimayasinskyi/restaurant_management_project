@@ -7,7 +7,7 @@ app_name = "home"
 def main_page(request):
     context = {
         "restaurant_name": settings.RESTAURANT_NAME,
-        "restaurant_name": settings.RESTAURANT_CONTACT_PHONE,
+        "restaurant_phone": settings.RESTAURANT_CONTACT_PHONE,
         }
     return render(request, "home.html", context)
 
@@ -17,6 +17,6 @@ def about(request):
 def contact(request):
     context = {
         "restaurant_name": settings.RESTAURANT_NAME,
-        "restaurant_name": settings.RESTAURANT_CONTACT_PHONE,
+        "restaurant_phone": settings.RESTAURANT_CONTACT_PHONE,
         }
     return render(request, "contect.html", context)
