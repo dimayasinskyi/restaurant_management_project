@@ -61,5 +61,10 @@
         <main>
         {% block content %}{% endblock %}
         </main>
+        <footer class="bg-dark text-white py-3 text-center">
+            <div class="container">
+                %copy; {% now "Y" %}. All rights reserved.
+            </div>
+        </footer>
     </body>
 </html>
