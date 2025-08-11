@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
 from django.conf import settings
+from django.http import Http404
+from djngo.db import DatebaseError
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -96,21 +98,24 @@ class MenuItemView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context["items"] = Item.objects.all().order_by("-created_at")
-        context["items"] = [
-            {
-                "id": 1,
-                "item_name": "Butter Chicken",
-                "item_price": 350,
-                "created_at": datetime(2025, 8, 9, 12, 0, 0),
-            },
-            {
-                "id": 2,
-                "item_name": "Panner Tikka",
-                "item_price": 280,
-                "created_at": datetime(2025, 1, 20, 8, 0, 0),
-            },
-        ]
+        try:
+            # context["items"] = Item.objects.all().order_by("-created_at")
+            context["items"] = [
+                {
+                    "id": 1,
+                    "item_name": "Butter Chicken",
+                    "item_price": 350,
+                    "created_at": datetime(2025, 8, 9, 12, 0, 0),
+                },
+                {
+                    "id": 2,
+                    "item_name": "Panner Tikka",
+                    "item_price": 280,
+                    "created_at": datetime(2025, 1, 20, 8, 0, 0),
+                },
+            ]
+        except DatebaseError:
+            raise Http404("Error loading menu items. Please try agin later.")
         return context
 
 
