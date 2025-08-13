@@ -5,18 +5,10 @@ from django.conf import settings
 app_name = "home"
 
 def main_page(request):
-    context = {
-        "restaurant_name": settings.RESTAURANT_NAME,
-        "restaurant_phone": settings.RESTAURANT_CONTACT_PHONE,
-        }
-    return render(request, "home.html", context)
+    return render(request, "home.html")
 
 def about(request):
-    return render(request, "about.html", {"restaurant_name": settings.RESTAURANT_NAME})
+    return render(request, "about.html")
 
 def contact(request):
-    context = {
-        "restaurant_name": settings.RESTAURANT_NAME,
-        "restaurant_phone": settings.RESTAURANT_CONTACT_PHONE,
-        }
-    return render(request, "contect.html", context)
+    return render(request, "contect.html")
