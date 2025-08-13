@@ -54,6 +54,12 @@
             <div class="container">
                 %copy; {% now "Y" %} {{restaurant_name}}. All rights reserved.
             </div>
+            <p>Working hours:</p>
+            <p>
+                {% for entry in restaurant_working_hours %}
+                {{entry.days}}: {{entry.hours}}<br>
+                {% endfor %}
+            </p>
         </footer>
     </body>
 </html>
