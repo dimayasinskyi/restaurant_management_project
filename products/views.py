@@ -2,11 +2,12 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.http import Http404
-from django.db import DatebaseError
+from django.db import DatabaseError
+from datetime import datetime
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from datetime import datetime
 
 from .models import Item
 from .serializers import ItemSerializer
@@ -113,7 +114,7 @@ class MenuItemView(TemplateView):
                     "created_at": datetime(2025, 1, 20, 8, 0, 0),
                 },
             ]
-        except DatebaseError:
+        except DatabaseError:
             raise Http404("Error loading menu items. Please try agin later.")
         return context
 
