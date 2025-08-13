@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block title %}{{restaurant_name}}{% endblock %}
@@ -9,14 +10,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-grandient(135deg, #FF6)
+    background: linear-grandient(135deg, #FF6F61, #D84315);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 6rem;
+    font-align: center;
+    margin: 0;
+    paddding: 0 1rem;
+}
+
+.full-screen-title p {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    font-weight: 400;
+}
+
+.full-screen-title .phone {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    font-weight: 600;
 }
 {% endblock %}
 
 {% block content %}
 <main class="full-screen-title">
+    <img src="{% static "restaurant/logo.jpg" %}" alt="logotype">
     {{restaurant_name}}
     <p class="head">Welcome to {{restaurant_name}}! Enjoy the authentic flavors and cozy atmoshere.</p>
-    <p class="mt-3 fs-4">Phone number:{{restaurant_phone}}.</p>
+    <p class="phone">Phone number:{{restaurant_phone}}.</p>
 </main>
 {% endblock %}
