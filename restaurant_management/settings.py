@@ -130,4 +130,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Restaurant
 RESTAURANT_NAME = "Tandoori Flame"
+WORKING_HOURS = [
+    {"days": "Mon - Sat", "hours": "10:10 AM - 10:10 PM"},
+    {"days", "Sun", "hours": "Closed"},
+]
 RESTAURANT_CONTACT_PHONE = "+380991234567"
