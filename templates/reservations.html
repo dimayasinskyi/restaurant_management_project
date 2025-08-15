@@ -3,33 +3,44 @@
 
 {% block title %}Reservation{% endblock %}
 
+{% block style %}
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+{% endblock %}
+
 {% block content %}
 <main class="container py-5" style="max-width: 500px;">
     <h2 class="mb-4 text-center">Table reservation</h2>
-    <form method="POST">    
+    <form method="POST" id="reservationForm" onsubmit="return validateForm(event)">    
         <div class="mb-3">
             <label for="name" class="form-label">Your name</label>
-            <input type="text" class="form-conrol" id="name" placeholder="Enter your full name" required>
+            <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+            <div id="nameError" class="error">Please enter a valid name (letters and spaces only)</div>
         </div>
         
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-conrol" id="email" placeholder="Enter your email address">
+            <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+            <div id="emailError" class="error">Please enter a valid email address</div>
         </div>
         
         <div class="mb-3">
             <label for="phone" class="form-label">Phone number</label>
-            <input type="tel" class="form-conrol" id="phone" placeholder="Enter you phone number" required>
+            <input type="tel" class="form-control" id="phone" placeholder="Enter you phone number" required>
         </div>
         
         <div class="mb-3">
             <label for="date" class="form-label">Reservation date</label>
-            <input type="date" class="form-conrol" id="date" required>
+            <input type="date" class="form-control" id="date" required>
         </div>
         
         <div class="mb-3">
             <label for="time" class="form-label">Reservation time</label>
-            <input type="time" class="form-conrol" id="time" required>
+            <input type="time" class="form-control" id="time" required>
         </div>
 
         <div class="mb-3">
@@ -45,4 +56,39 @@
         <button type="submit" class="btn btn-primary">Reservation now</button>
     </form>
 </main>
+
+<script>
+    function validateForm(event) {
+        event.preventDefault();
+
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+
+        nameError.style.display = "none";
+        emailError.style.display = "none";
+
+        let isValid = true;
+
+        const namePattern = /^[A-Za-z\s]{2,}$/;
+        if (!nameInput.value.trim() || !namePattern.test(nameInput.value.trim())) {
+            nameError.style.display = "block";
+            isValid = false;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailInput.value.trim() && !emailPattern.test(emailInput.value.trim())) {
+            emailError.style.display = "block";
+            isValid = false;
+        }
+
+        if (isValid) {
+            alert("Form is valid! Ready to submit.");
+            document.getElementById("reservationForm").reset();
+        }
+
+    return isValid;
+    }
+</script>
 {% endblock %}
