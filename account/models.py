@@ -27,3 +27,20 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Feedback(models.Model):
+    """
+    
+    """
+    user = models.ForeignKey(to=User, on_delete=models,verbose_name="User")
+    text = models.TextField(verbose_name="Text")
+    created_at = models.DateTimeField(auto_now_add=True,verbose_name="Created at")
+
+    def Meta:
+        ordering = ['-created_at']
+        verbose_name = "feedback"
+        verbose_name_plural = "feedbacks"
+
+    def __str__(self):
+        return f"{self.user} | {self.created_at}" 
