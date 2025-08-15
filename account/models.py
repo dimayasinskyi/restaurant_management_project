@@ -34,6 +34,7 @@ class Feedback(models.Model):
     
     """
     user = models.ForeignKey(to=User, on_delete=models,verbose_name="User")
+    item = models.ForeignKey
     text = models.TextField(verbose_name="Text")
     created_at = models.DateTimeField(auto_now_add=True,verbose_name="Created at")
 
