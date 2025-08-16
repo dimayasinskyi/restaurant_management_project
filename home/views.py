@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.conf import settings
 
+from .models import RestaurantLocationModel
+
 
 app_name = "home"
 
