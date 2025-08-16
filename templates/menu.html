@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block title %}{{restaurant_name}}{% endblock %}
 
@@ -10,6 +12,7 @@
     {% for item in items %}
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm h-100">
+                <img src="" class="card-img-top" alt="{{item.item_name}}">
                 <div class="card-body">
                     <h1 class="card-title">Item #{{item.id}}</h1>
                     <h2 class="card-subtitle mb-2 text-muted">Name: {{item.item_name}}</h2>
