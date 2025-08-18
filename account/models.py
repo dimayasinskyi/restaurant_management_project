@@ -45,3 +45,8 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f"{self.user} | {self.created_at}" 
+
+
+class Contact(models.Model):
+    name
+    
