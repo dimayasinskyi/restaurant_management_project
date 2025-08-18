@@ -17,7 +17,7 @@ def main_page(request):
 
     contect = {
         "form": form,
-        "map_key": settings.MAP_API_KEY,
+        "map_key": settings.GOOGLE_MAP_API_KEY,
     }
     return render(request, "home.html", contect)
 
