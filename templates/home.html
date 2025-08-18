@@ -4,6 +4,11 @@
 
 {% block title %}{{restaurant_name}}{% endblock %}
 
+{% block head %} 
+<meta name="description" content="Welcome to {{restaurant_name}}, where you can enjoy authentic flavors and a cozy atmosphere.">
+<meta name="keywords" content="{{restaurant_name}}, restaurant, authentic cuisine, {{restaurant_location_model.0.address}}">
+{% endblock %}
+
 {% block style %}
 .full-screen-title {
     height: 10vh;
