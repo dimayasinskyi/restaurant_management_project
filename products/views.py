@@ -137,3 +137,21 @@ class MenuItemDetailView(TemplateView):
         item_id = self.kwargs.get("id")
         context["item"] = get_object_or_404(Item, id=item_id)
         return context
+
+
+class ProductlView(TemplateView):
+    """
+    A view fro displaying a list of all menu items.
+
+    Methods:
+    - get_context_data:
+      - Sets the context for the template
+      - Adds a list of Product model objects, sorted by name
+      - Returns the context for use in the template
+    """
+    template_name = "products.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["products"] = Product.object.all().order_by("name")
+        return context
