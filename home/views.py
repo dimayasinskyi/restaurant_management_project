@@ -7,7 +7,7 @@ from account.form import ContactForm
 app_name = "home"
 
 def main_page(request):
-    return render(request, "home.html", {"form": ContactForm})
+    return render(request, "home.html", {"form": ContactForm()})
 
 def about(request):
     return render(request, "about.html")
