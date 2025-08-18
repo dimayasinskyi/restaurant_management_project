@@ -48,7 +48,9 @@ class Feedback(models.Model):
 
 
 class Contact(models.Model):
-    name = models.CharField(max_length=)
-    address = TextField
+    name = models.CharField(max_length=50)
+    address = models.TextField()
     email = models.EmailFIeld()
+    created_at = models.DateTimeField(auto_now_add=True)
+
     
