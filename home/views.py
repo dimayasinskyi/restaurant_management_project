@@ -15,7 +15,11 @@ def main_page(request):
     else:
         form = ContactForm()
 
-    return render(request, "home.html", {"form": form})
+    contect = {
+        "form": form,
+        "map_key": settings.MAP_API_KEY,
+    }
+    return render(request, "home.html", contect)
 
 def about(request):
     return render(request, "about.html")
