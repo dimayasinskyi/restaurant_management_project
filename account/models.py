@@ -48,5 +48,7 @@ class Feedback(models.Model):
 
 
 class Contact(models.Model):
-    name
+    name = models.CharField(max_length=)
+    address = TextField
+    email = models.EmailFIeld()
     
