@@ -4,9 +4,22 @@
 {% block title %}Products{% endblock %}
 
 {% block content %}
-<main>
-    {% for product in products %}
-    
-    {% endfor %}
+<main class="container py-4">
+    <h1 class="mb-1 text-center">Products</h1>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h1 class="card-title">Name: {{product.name}}</h1>
+                    <p class="card-text">Description: {{product.description}}</p>
+                    <p class="card-text">Price: {{product.price}}</p>
+                    <p class="card-text">Added at: {{product.created_at|date: "d, m, Y"}}</p>
+                    <a class="btn btn-primary" href="#">Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </main>
 {% endblock %}
