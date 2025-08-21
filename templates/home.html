@@ -49,10 +49,25 @@
 
 <main class="full-screen-title">
     {% if request.GET.find %}
-    
+        {% if items_menu %}
+            <ul class="list-unstyled">
+                {% for item in items_menu %}
+                    <li class="mb-2">
+                        <a class="dropdown-item d-flex align-items-center" href="{% url 'item-detail' item.id %}">
+                            {% if item.item_image %}
+                                <img src="{{ item.item_image.url }}" alt="{{ item.item_name }}" width="40" class="me-2 rounded">
+                            {% endif %}
+                            {{ item.item_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">No items found for "{{ request.GET.find }}"</p>
+        {% endif %}
     {% else %}
-    <img src="{% static 'restaurant/logo.jpg' %}" alt="logotype">
-    {{ restaurant_name }}
+        <img src="{% static 'restaurant/logo.jpg' %}" alt="logotype">
+        {{ restaurant_name }}
         <p class="head">Welcome to {{ restaurant_name }}! Enjoy the authentic flavors and cozy atmoshere.</p>
         <p class="phone">Phone number:{{ restaurant_phone }}.</p>
 
