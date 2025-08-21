@@ -8,10 +8,10 @@
     {% if item.item_image %}
     <img src="{{item.item_image.url}}" class="img-fluid mb-3" alt="{{item.item_name}}">
     {% endif %}
-    <h1 class="mb-4">Menu item: #{{item.id}}</h1>
-    <p><strong>Name:</strong> {{item.item_name}}</p>
-    <p><strong>Price:</strong> {{item.item_price}} $</p>
-    <p><small class="text-muted">Created at: {{item.created_at|date:"d, m, Y"}}</small></p>
+    <h1 class="mb-4">Menu item: #{{ item.id }}</h1>
+    <p><strong>Name:</strong> {{ item.item_name }}</p>
+    <p><strong>Price:</strong> {{ item.item_price }} $</p>
+    <p><small class="text-muted">Created at: {{ item.created_at|date:"d, m, Y" }}</small></p>
     <a href="{% url 'product:menu-list' %}" class="btn btn-secondary mt-3">back</a>
 </div>
 {% endblock %}
