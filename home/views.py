@@ -3,6 +3,7 @@ from django.conf import settings
 
 from account.form import ContactForm
 from account.models import Contact
+from products.models import Item
 
 
 app_name = "home"
@@ -14,6 +15,9 @@ def main_page(request):
             Contact.objects.create(**form.cleaned_data)
     else:
         form = ContactForm()
+
+    if request.GET.get("find"):
+
 
     contect = {
         "form": form,
