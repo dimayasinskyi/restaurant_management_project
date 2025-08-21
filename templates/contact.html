@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Contact Us - {{restaurant_name}}{% endblock %}
+{% block title %}Contact Us - {{ restaurant_name }}{% endblock %}
 
 {% block content %}
 <main class="container my-5">
@@ -14,12 +14,12 @@
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <strong>Address:</strong>
                 {% for restaurant in restaurant_location_model %}
-                <span>{{restaurant.address}}</span><br>
+                <span>{{ restaurant.address }}</span><br>
                 {% endfor %}
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <strong>Phone number:</strong>
-                <span>{{restaurant_phone}}</span>
+                <span>{{ restaurant_phone }}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <strong>Email:</strong>
