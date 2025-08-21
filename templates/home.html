@@ -54,14 +54,7 @@
     <p class="phone">Phone number:{{restaurant_phone}}.</p>
 
     <div class="mb-0">
-        <strong>Address:</strong>
-        <ul class="list-unstyled mb-0">
-            {% for restaurant in restaurant_location_model %}
-            <li>{{restaurant.address}}</li>
-            <iframe src="https://www.google.com/maps/embed/v1/place?key={{map_key}}&q={{restaurant.address|urlencode}}&language=en" 
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            {% endfor %}
-        </ul>
+        {% include "include/address.html" %}
     </div>
 
     <div>
