@@ -1,0 +1,4 @@
+<strong>Openin Hours:</strong>
+{% for entry in restaurant_working_hours %}
+<span>{{ entry.days }}: {{ entry.hours }}</span><br>
+{% endfor %}
