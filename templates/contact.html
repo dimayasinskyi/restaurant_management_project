@@ -26,10 +26,7 @@
                 <span>contact@email.com</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                <strong>Opening Hours:</strong>
-                {% for entry in restaurant_working_hours %}
-                <span>{{entry.days}}: {{entry.hours}}</span><br>
-                {% endfor %}
+                {% include "include/opening_hours.html" %}
             </li>
         </lu>
 
