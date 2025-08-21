@@ -9,6 +9,7 @@ from products.models import Item
 app_name = "home"
 
 def main_page(request):
+
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -17,11 +18,14 @@ def main_page(request):
         form = ContactForm()
 
     if request.GET.get("find"):
-
+        items_menu = Item.objects.filter(item_name__contains=request.GET["find"])
+    else:
+        items_menu = None
 
     contect = {
         "form": form,
         "map_key": settings.GOOGLE_MAP_API_KEY,
+        "items_menu": items_menu,
     }
     return render(request, "home.html", contect)
 
