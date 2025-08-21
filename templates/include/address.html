@@ -1,0 +1,8 @@
+<strong>Address:</strong>
+<ul class="list-unstyled mb-0">
+    {% for restaurant in restaurant_location_model %}
+    <li>{{restaurant.address}}</li>
+    <iframe src="https:/wwwgoogle.com/maps/embed/v1/place?key={{map_key}}&q={{restaurant.address|urlencode}}&language=en"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    {% endfor %}
+</lu>
