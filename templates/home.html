@@ -5,8 +5,8 @@
 {% block title %}{{restaurant_name}}{% endblock %}
 
 {% block head %} 
-<meta name="description" content="Welcome to {{restaurant_name}}, where you can enjoy authentic flavors and a cozy atmosphere.">
-<meta name="keywords" content="{{restaurant_name}}, restaurant, authentic cuisine, {{restaurant_location_model.0.address}}">
+<meta name="description" content="Welcome to {{ restaurant_name }}, where you can enjoy authentic flavors and a cozy atmosphere.">
+<meta name="keywords" content="{{ restaurant_name }}, restaurant, authentic cuisine, {{ restaurant_location_model.0.address }}">
 {% endblock %}
 
 {% block style %}
@@ -49,9 +49,9 @@
 
 <main class="full-screen-title">
     <img src="{% static 'restaurant/logo.jpg' %}" alt="logotype">
-    {{restaurant_name}}
-    <p class="head">Welcome to {{restaurant_name}}! Enjoy the authentic flavors and cozy atmoshere.</p>
-    <p class="phone">Phone number:{{restaurant_phone}}.</p>
+    {{ restaurant_name }}
+    <p class="head">Welcome to {{ restaurant_name }}! Enjoy the authentic flavors and cozy atmoshere.</p>
+    <p class="phone">Phone number:{{ restaurant_phone }}.</p>
 
     <div class="mb-0">
         {% include "include/address.html" %}
