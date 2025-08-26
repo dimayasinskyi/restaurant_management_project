@@ -22,14 +22,21 @@ def main_page(request):
     else:
         items_menu = None
 
-    card = Card.objects.get(user=request.user)
-    total_qty = card.
+
+    if request.user.is_authenticated:
+        try
+            card = Card.objects.get(user=request.user)
+            total_qty = card.order_items.count()
+        except Card.DoesNotExist:
+            total_qty = None
+    else:
+        total_qty = None
 
     contect = {
         "form": form,
         "map_key": settings.GOOGLE_MAP_API_KEY,
         "items_menu": items_menu,
-        "total_qty": ,
+        "total_qty": total_qty,
     }
     return render(request, "home.html", contect)
 
