@@ -6,6 +6,7 @@ class RestaurantLocationModel(models.Model):
     Model for storing information about the location of a restaurant.
 
     Has fields:
+    - logotype: address to the iamge in the logo folder
     - phone: field characters maximum 16
     - address: text field
     - city: field characters maximum 189
@@ -13,6 +14,7 @@ class RestaurantLocationModel(models.Model):
     - zip_code: field characters maximum 10
     - created_at: automatically filled with the current time
     """
+    logotype = models.ImageField(upload_to="logotype/", verbose_name="Logotype")
     phone = models.CharField(max_length=16, verbose_name="Phone")
     address = models.TextField(verbose_name="Address")
     city = models.CharField(max_length=189, verbose_name="City")
