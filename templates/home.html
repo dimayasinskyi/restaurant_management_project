@@ -71,7 +71,9 @@
         {{ restaurant_name }}
         <p class="head">Welcome to {{ restaurant_name }}! Enjoy the authentic flavors and cozy atmoshere.</p>
         <p class="phone">Phone number:{{ restaurant_phone }}.</p>
-        <p class="">In you cart:{{ total_qty }}.</p>
+        {% if total_qty %}
+            <p class="fw-bold">In you cart:{{ total_qty }} qty.</p>
+        {% endif %}
 
         <div class="mb-0">
             {% include "include/address.html" %}
