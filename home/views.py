@@ -4,7 +4,7 @@ from django.conf import settings
 from account.form import ContactForm
 from account.models import Contact
 from products.models import Item
-
+from orders.models import Order
 
 app_name = "home"
 
@@ -26,6 +26,7 @@ def main_page(request):
         "form": form,
         "map_key": settings.GOOGLE_MAP_API_KEY,
         "items_menu": items_menu,
+        "total_qty": ,
     }
     return render(request, "home.html", contect)
 
