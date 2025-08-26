@@ -22,6 +22,8 @@ def main_page(request):
     else:
         items_menu = None
 
+    total_qty = Order.objects.
+
     contect = {
         "form": form,
         "map_key": settings.GOOGLE_MAP_API_KEY,
