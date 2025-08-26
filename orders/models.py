@@ -50,3 +50,24 @@ class Order(models.Model):
     
     def __str__(self):
         return f"{self.customer.get_full_name()} | {self.total_amount}"
+
+
+class Card(models.Model):
+    """
+    User card model for previewing products before placing an order.
+
+    Has fields:
+    - customer: will be associated with the User model type many-to-one cascade delete (related name "card")
+    - order_items: will be associated with the Item model many-to-many relationship (related name "card")
+    
+    Method __str__: returns full username or username.
+    """
+    customer = models.OneToOneField(to=User, on_delete=models.CASCADE, related_name="card", verbose_name="Customer")
+    order_items = models.ManyToManyField(to="products.Item", related_name="card", verbose_name="Items")
+
+    class Meta:
+        verbose_name = "Card"
+        verbose_name_plural = "Cards"
+
+    def __str__(self):
+        return self.customer.get_full_name() or self.customer.username
