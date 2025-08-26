@@ -1,3 +1,36 @@
 {% extends 'base.html' %}
 
+{% load static %}
 
+
+{% block title %}Our story{% endblock %}
+
+{% block content %}
+<main class="container py-5">
+    <h1 class="text-center mb-4">History of our restaurant</h1>
+
+    <div class="row justify-content-center">
+        <div class="card shadow-sm">
+            <img src="{% static 'img/restaurant.jpg' %}" alt="{{restaurant_name}}">
+            <div class="card-body">
+                <p class="card-text">
+                    Once upon a time, there lived a chef named Rishi in a small town.
+                    He brought his favorite spices from India and started cooking fro his friends.
+                    The food was so delicious that soon people from all over the area
+                    were coming to him.
+                </p>
+                <p class="card-text">
+                    Thus was born a small restaurant, which today is known as
+                    <strong>"Taste of India"</strong>
+                    Here they prepare curries, naan and aromaric masala tea,
+                    and every guest finds something special for themselves.
+                </p>
+                <p class="card-text">
+                    We believe that food brings people together and brings joy.
+                    That is hy our restaurant has become a metting place for many families and friends. 
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
