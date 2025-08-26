@@ -22,7 +22,7 @@ def main_page(request):
     else:
         items_menu = None
 
-    total_qty = Order.objects.
+    total_qty = Order.objects.order_items
 
     contect = {
         "form": form,
