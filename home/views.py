@@ -4,7 +4,7 @@ from django.conf import settings
 from account.form import ContactForm
 from account.models import Contact
 from products.models import Item
-from orders.models import Order
+from orders.models import Card
 
 app_name = "home"
 
@@ -22,7 +22,8 @@ def main_page(request):
     else:
         items_menu = None
 
-    total_qty = Order.objects.order_items
+    card = Card.objects.get(user=request.user)
+    total_qty = card.
 
     contect = {
         "form": form,
