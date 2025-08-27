@@ -14,3 +14,13 @@ class ContactForm(forms.Form):
         "class": "form-contol",
         "placeholder": "Enter your email address",
     }))
+    message = forms.CharField(required=False, label="Email", widget=forms.Textarea(attrs={
+        "class": "form-contol",
+        "placeholder": "Enter your email address",
+    }))
+
+    def clean_message(self):
+        msg = self.cleaned_data["message"]
+        if not msg.strip():
+            raise forms.ValidationError("message cannot be empty.")
+        return msg
