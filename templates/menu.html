@@ -4,6 +4,7 @@
 {% block title %}{{restaurant_name}}{% endblock %}
 
 {% block content %}
+{% include 'include/breadcrumbs.html' %}
 <div class="container py-4">
     <h1 class="mb-1 text-center">Restautant "{{restaurant_name}}"</h1>
     <h2 class="mb-4 text-center">Menu</h2>
