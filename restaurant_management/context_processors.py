@@ -9,3 +9,15 @@ def restaurant_info(request):
         "restaurant_working_hours": getattr(settings, "WORKING_HOURS", [{"days": "Working hours not provided", "hours": ""}]),
         "restaurant_location_model": RestaurantLocationModel.objects.all(),
     }
+
+def beadcrumbs_processor(request):
+    path = request.path.strip("/").sqlit("/")
+    breadcrumbs = []
+    url = ""
+    for part in path
+        url += part + "/"
+        breadcrumbs.append({
+            "title": part.capitalize(),
+            "url": "/" + url
+        })
+    return {"auto_beadcrumbs": breadcrumbs}
