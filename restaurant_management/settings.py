@@ -74,7 +74,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'restaurant_management.context_processors.restaurant_info',
-                'restaurant_management.context_processors.',
+                'restaurant_management.context_processors.beadcrumbs_processor',
             ],
         },
     },
