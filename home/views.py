@@ -6,7 +6,6 @@ from account.models import Contact
 from products.models import Item
 from orders.models import Card
 
-app_name = "home"
 
 def main_page(request):
 
