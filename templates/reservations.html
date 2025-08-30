@@ -13,6 +13,7 @@
 {% endblock %}
 
 {% block content %}
+{% include 'include/breadcrumbs.html' %}
 <main class="container py-5" style="max-width: 500px;">
     <h2 class="mb-4 text-center">Table reservation</h2>
     <form method="POST" id="reservationForm" onsubmit="return validateForm(event)">    
